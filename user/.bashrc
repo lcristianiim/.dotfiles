@@ -147,7 +147,10 @@ export GITHUB_USERNAME='lcristianiim'
 export PATH=$HOME/.node/bin:$PATH
 
 # Added by Cristian
+
 stty -ixon
 
 export NVM_DIR="/home/cristian/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export CLICOLOR=TRUE

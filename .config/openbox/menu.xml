@@ -1,0 +1,7 @@
+<item label="Choose Wallpaper">
+	<action name="Execute">
+		<command>
+			nitrogen ~/Pictures/wallpapers
+		<command>
+	</action>
+</item>
