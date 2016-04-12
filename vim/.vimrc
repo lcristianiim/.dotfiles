@@ -13,6 +13,11 @@
 
 execute pathogen#infect()
 syntax on
+filetype plugin indent on
+
+"Numbering rows with grey
+highlight LineNr ctermfg=grey
+
 " Setting the 256 colors in vim
 syntax enable
 " colorscheme molokai
