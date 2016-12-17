@@ -65,6 +65,9 @@ sudo apt-cache search maven
 echo "Installing maven ..."
 sudo apt-get install maven
 
+echo "Installing postgreSQL ..."
+sudo apt install postgresql postgresql-contrib
+
 echo "Finished. Cleaning up ..."
 cd ..
 rm -rf dotfiles
