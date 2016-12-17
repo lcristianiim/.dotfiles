@@ -8,3 +8,7 @@
 
             This repository contains personal dotfiles of Cristian Szabo.
 ```
+
+$ wget -qO- https://raw.githubusercontent.com/lcristianiim/dotfiles/master/installer.sh | sh
+# or
+$ curl -L https://raw.githubusercontent.com/lcristianiim/dotfiles/master/installer.sh | sh
