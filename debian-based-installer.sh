@@ -50,6 +50,14 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 echo "Installing NeoBundle ..."
 curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 
+echo "Installing ruby-dev ..."
+sudo apt install ruby-dev
+
+echo "Configuring command-t ..."
+cd ~/.vim/bundle/command-t/ruby/command-t
+ruby extconf.rb
+make
+
 echo "Installing NVM ..."
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
 
@@ -67,6 +75,9 @@ sudo apt-get install maven
 
 echo "Installing postgreSQL ..."
 sudo apt install postgresql postgresql-contrib
+
+echo "Installing pgAdmin3 ..."
+sudo apt install pgadmin3
 
 echo "Finished. Cleaning up ..."
 cd ..
