@@ -54,8 +54,3 @@
 (setq powerline-default-separator 'arrow)
 
 ;; my custom configuration
-(add-to-list 'load-path "~/.emacs.d/workgroups.el")
-(require 'workgroups)
-(setq wg-prefix-key (kbd "C-c w"))
-(workgroups-mode 1)
-(wg-load "~/.emacs.d/workspaces")
