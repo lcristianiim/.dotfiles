@@ -1,0 +1,2 @@
+Reset all terminal settings with:
+dconf reset -f /org/gnome/terminal/legacy/profiles:/
