@@ -65,7 +65,6 @@ if which "$DCONF" > /dev/null 2>&1; then
         dset bold-color-same-as-fg "true"
         dset use-theme-colors "false"
         dset use-theme-background "false"
-        dset default-show-menu-bar "false"
 
         unset PROFILE_NAME
         unset PROFILE_SLUG
