@@ -90,25 +90,26 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
+bindsym $mod+1 workspace 1:Work
+bindsym $mod+2 workspace 2:Intellij
+bindsym $mod+3 workspace 3:Atlassian
+bindsym $mod+4 workspace 4:Email
+bindsym $mod+5 workspace 5:Comunication
+bindsym $mod+6 workspace 6:General
+bindsym $mod+7 workspace 7:Others
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
+
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+1 move container to workspace 1:Work
+bindsym $mod+Shift+2 move container to workspace 2:Intellij
+bindsym $mod+Shift+3 move container to workspace 3:Atlassian
+bindsym $mod+Shift+4 move container to workspace 4:Email
+bindsym $mod+Shift+5 move container to workspace 5:Comunication
+bindsym $mod+Shift+6 move container to workspace 6:General
+bindsym $mod+Shift+7 move container to workspace 7:Others
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
@@ -149,7 +150,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        status_command py3status
 }
 
 #---
@@ -172,17 +173,68 @@ mode "$mode_system" {
 bindsym $mod+Pause mode "$mode_system"
 
 # audio binding stuff
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +10% # increase sould volume
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10% # decrease sound volume
+
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +10% # increase sould volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -10% # decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 5%+ # increase sould volume
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 5%- # decrease sound volume
 
 # Screen brightness control
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightneo
-ssDown exec xbacklight -dec 10 # decrease screen brightness
+#bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+#bindsym XF86MonBrightneo
+#ssDown exec xbacklight -dec 10 # decrease screen brightness
 
 # Network controll
 exec --no-startup-id nm-applet
 
 # Client focused
-client.focused #3EEB0A #006304 #3EEB0A #0DFF9F #285577
+# client.focused #3EEB0A #006304 #3EEB0A #0DFF9F #285577
+client.focused #0c0d0e #2f2112 #3EEB0A #0DFF9F #285577
+
+# Lock screen
+# xautolock -time 10 -locker "i3lock -i '~/Pictures/background.jpg'" &
+
+# Keyboard configuration
+exec --no-startup-id keyboard-cool
+
+# Keyboard configuration
+exec --no-startup-id monitor-cool
+
+#Set background
+exec --no-startup-id feh --bg-scale ~/Pictures/background.jpg
+
+exec --no-startup-id volumeicon
+
+exec --no-startup-id /home/cristian/scripts/keyboard-setup.sh
+exec --no-startup-id /bin/bash /home/cristian/monitor
+
+#exec --no-startup-id ~/.i3/load-1.sh
+exec --no-startup-id ~/.i3/load-2.sh
+#exec --no-startup-id ~/.i3/load-3.sh
+#exec --no-startup-id ~/.i3/load-4.sh
+exec --no-startup-id ~/.i3/load-5.sh
+#exec --no-startup-id ~/.i3/load-6.sh
+#exec --no-startup-id ~/.i3/load-7.sh
+
+exec --no-startup-id i3-msg 'workspace 1:Work; exec google-chrome --new-window'
+
+#exec --no-startup-id i3-msg 'workspace 2:Intellij; exec /bin/bash /home/cristian/software/idea-IU-183.5429.30/bin/idea.sh'
+
+exec --no-startup-id i3-msg 'workspace 3:Atlassian; exec google-chrome wiki.swisscom.com --new-window'
+exec --no-startup-id i3-msg 'workspace 3:Atlassian; exec google-chrome jira.swisscom.com --new-window'
+
+exec --no-startup-id i3-msg 'workspace 4:Email; exec google-chrome --new-window'
+exec --no-startup-id i3-msg 'workspace 4:Email; exec google-chrome --incognito --new-window'
+exec --no-startup-id i3-msg 'workspace 4:Email; exec firefox'
+
+#exec --no-startup-id i3-msg 'workspace 5:Comunication; exec slack'
+exec --no-startup-id i3-msg 'workspace 5:Comunication; exec google-chrome web.skype.com --new-window'
+#exec --no-startup-id i3-msg 'workspace 5:Comunication; exec hipchat4'
+
+exec --no-startup-id i3-msg 'workspace 6:General; exec google-chrome --new-window'
+
+exec --no-startup-id i3-msg 'workspace 7:Others; exec thunderbird'
+
+exec_always --no-startup-id setxkbmap -layout 'us,ro' -variant ',std' && setxkbmap -option 'grp:alt_shift_toggle'
