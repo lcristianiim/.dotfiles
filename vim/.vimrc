@@ -22,6 +22,7 @@ syntax enable
 " colorscheme molokai
 "
 set t_Co=256
+set background=dark
 
 if exists('$TMUX')
   function! TmuxOrSplitSwitch(wincmd, tmuxdir)
