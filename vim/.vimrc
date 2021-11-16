@@ -278,9 +278,7 @@ nnoremap <silent> <F10> :call Paste_on_off()<CR>
 nnoremap <silent> <F12> :call OpenTerminal()<CR>
 set pastetoggle=<F10>
 
-" Swap ; and :  Convenient.
-nnoremap ; :
-nnoremap : ;
-
 " Delete unwanted spaces
 autocmd BufWritePre * :%s/\s\+$//e
+
+let g:snipMate = { 'snippet_version' : 1 }
